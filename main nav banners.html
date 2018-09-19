@@ -1,0 +1,28 @@
+{{#each menus.mainnav}}
+{{#if url}}
+<li class="{{#if submenu.0.url}}dropdown dropdown2 {{/if}} {{class}}">
+<a {{#if target}} target="{{target}}" {{/if}} href="{{url}}">
+<span>{{label}}</span>
+<span class="notranslate">{{labeltranslate}}</span>
+
+</a>
+{{#if submenu.0.url}}
+<ul class="dropdown-menu">
+{{#each submenu}}
+{{#if url}}
+<li class="{{class}}">
+<a href="{{url}}" {{#if target}} target="{{target}}" {{/if}}>                            
+{{#matches key='label' value='View All Pre-Owned Vehicles'}}
+View All {{#inventory_count url="/inventory/used/" zero=''}} Pre-Owned Vehicles 
+{{else}}
+{{label}}
+{{/matches}}
+</a>
+</li>
+{{/if}}
+{{/each}}
+</ul>
+{{/if}}
+</li>
+{{/if}} {{!-- if top level url exists --}}
+{{/each}}
